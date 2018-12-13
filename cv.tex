@@ -1,0 +1,213 @@
+\documentclass[a4paper,10pt]{article}
+
+%A Few Useful Packages
+\usepackage{marvosym}
+\usepackage{fontspec} 					%for loading fonts
+\usepackage{xunicode,xltxtra,url,parskip} 	%other packages for formatting
+\RequirePackage{color,graphicx}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage[big]{layaureo} 				%better formatting of the A4 page
+% an alternative to Layaureo can be ** \usepackage{fullpage} **
+\usepackage{supertabular} 				%for Grades
+\usepackage{titlesec}
+%custom \section
+\usepackage{longtable}
+
+%Setup hyperref package, and colours for links
+\usepackage{hyperref}
+\definecolor{linkcolour}{rgb}{0,0.2,0.6}
+\hypersetup{colorlinks,breaklinks,urlcolor=linkcolour, linkcolor=linkcolour}
+
+%FONTS
+\defaultfontfeatures{Mapping=tex-text}
+%\setmainfont[SmallCapsFont = Fontin SmallCaps]{Fontin}
+%%% modified for Karol Kozioł for ShareLaTeX use
+% \setmainfont[
+% SmallCapsFont = Fontin-SmallCaps.otf,
+% BoldFont = Fontin-Bold.otf,
+% ItalicFont = Fontin-Italic.otf
+% ]
+% {Fontin.otf}
+%%%
+
+%CV Sections inspired by: 
+%http://stefano.italians.nl/archives/26
+\titleformat{\section}{\Large\scshape\raggedright}{}{0em}{}[\titlerule]
+\titlespacing{\section}{0pt}{3pt}{3pt}
+%Tweak a bit the top margin
+\addtolength{\voffset}{-0.75cm}
+\addtolength{\hoffset}{-1.75cm}
+\addtolength{\textheight}{2.0cm}
+\addtolength{\textwidth}{3.0cm}
+\renewcommand{\thepage}{Amir H. M. - \arabic{page}}
+
+%Italian hyphenation for the word: ''corporations''
+\hyphenation{im-pre-se}
+
+%-------------WATERMARK TEST [**not part of a CV**]---------------
+\usepackage[absolute]{textpos}
+
+\setlength{\TPHorizModule}{30mm}
+\setlength{\TPVertModule}{\TPHorizModule}
+\textblockorigin{2mm}{0.65\paperheight}
+\setlength{\parindent}{0pt}
+
+%-------------Inline List---------------
+\usepackage[inline]{enumitem}   
+\makeatletter
+\newcommand{\inlineitem}[1][]{%
+\ifnum\enit@type=\tw@
+    {\descriptionlabel{#1}}
+  \hspace{\labelsep}%
+\else
+  \ifnum\enit@type=\z@
+       \refstepcounter{\@listctr}\fi
+    \quad\@itemlabel\hspace{\labelsep}%
+\fi}
+\makeatother
+\parindent=10pt
+
+%--------------------BEGIN DOCUMENT----------------------
+\begin{document}
+
+\font\fb=''[cmr10]'' %for use with \LaTeX command
+
+%--------------------TITLE-------------
+\par{\centering
+		{\Huge Amir \textsc{Haghighati}Maleki\\
+		\small{Last Update: \today}
+		}
+	\bigskip\par
+}
+%--------------------SECTIONS-----------------------------------
+%Section: Personal Data
+\section{Personal}
+
+\begin{tabular}{rl}
+    \textsc{Date \& Place of Birth:} & August 13, 1996 | Tabriz, Iran \\
+    \textsc{Office:}   & Room 340, Middlesex College, London, Ontario \\
+    %\textsc{Phone:}     & +1 437 237 7189\\
+    \textsc{Email:}     & \href{mailto:ahaghig3@uwo.ca}{ahaghig3@uwo.ca} \\
+    %\textsc{Homepage:}     & \href{http://amirhmaleki.ir}{http://amirhmaleki.ir}
+\end{tabular}
+
+%Section: Education
+\section{Education}
+\begin{tabular}{r|p{14.70cm}}	
+    \textsc{Current} & Master of Science Degree in \textsc{Computer Science} \\
+    \textsc{2018} & \normalsize\textbf{University of Western Ontario}, London\\
+    & Supervisors: \href{http://www.csd.uwo.ca/faculty/sedig/}{Dr. Kamran \textsc{Sedig}} \& \href{http://www.csd.uwo.ca/faculty/ahaque32/}{Dr. Anwar \textsc{Haque}} \\\multicolumn{2}{c}{}\\
+    
+ 
+    \textsc{2018} & Undergraduate Degree in \textsc{Computer Engineering} \\
+    \textsc{2014} & \normalsize\textbf{Amirkabir Univesity of Technology (Tehran Polytechnic)}, Tehran\\
+    & Thesis: \textit{“Implementing a Usability Testing Tool for Web Applications Using a Crowdsourced Approach”} | \small Advisor: \href{http://ceit.aut.ac.ir/~ahmad}{Prof. Ahmad \textsc{Abdollahzadeh Barfourosh}}\\
+    & \textsc{GPA} (specialization courses): 19.00/20.00 (3.80/4.00)
+    \hyperlink{grds_usc}{\hfill \footnotesize Detailed List of Scores and courseworks}\\
+    & \textsc{CGPA} (overall): 16.65/20.00 (3.33/4.00)\\\multicolumn{2}{c}{}\\
+    
+    \textsc{2014} & High School Diploma in \textsc{Math \& Physics} \\
+    \textsc{2010} & \textbf{National Organization for Development of Exceptional Talents (NODET)}, Maragheh (Shahid Beheshti Highschool)\\
+    & \textsc{GPA}: 19.00/20.00 (3.80/4.00) \\ \multicolumn{2}{c}{} \\
+\end{tabular}
+
+\bigskip
+\section{Research Interests}
+\begin{itemize}
+    \item User-centered Design and User-driven Development
+    \inlineitem Crowdsourcing and Crowdsourced Problem Solving
+    \inlineitem Information Visualization
+    \inlineitem Human-Computer Interaction
+    \inlineitem Software, UI/UX and Web Usability Testing
+    \inlineitem Progressive Web Applications
+    \inlineitem Cross-Platform Applications \\
+\end{itemize}
+
+%Section: Experience
+\section{Experience}
+\begin{longtable}{r|p{14.70cm}}
+    \textsc{Current} & Graduate Research Assistant, University of Western Ontario \\
+    \textsc{Sep 2018} & \emph{\href{http://insight.uwo.ca/}{Insight Lab at Western}} \& \emph{\href{http://www.csd.uwo.ca/faculty/ahaque32/research_team.html}{Dr. Haque's Research Team}} \\\multicolumn{2}{c}{} \\
+    
+    \textsc{Current} & Graduate Teaching Assistant, University of Western Ontario \\
+    \textsc{Sep 2018} & \emph{\href{http://www.csd.uwo.ca/people/faculty/full_time_faculty.html}{Dr. Laura Reid} - Introduction to Databases (CS3319A/CS3120A/DH3220A and CS9159A)}\\\multicolumn{2}{c}{} \\
+
+    \textsc{Jan 2018} & Undergraduate Teaching Assistant, Amirkabir University of Technology \\
+    \textsc{Sep 2017} & \emph{\href{http://ceit.aut.ac.ir/~dehghan/}{Dr. Mehdi Dehghan} - Data Structures and Algorithms}\\ & \emph{\href{http://www.aut.ac.ir/sa.hashemi}{Dr. Alireza Hashemi} - Information Technology Project Management}\\\multicolumn{2}{c}{} \\
+
+    \textsc{Sep 2017} & Research Intern at \textsc{\href{https://fandogh.org}{Fandogh Team}}, Tehran \\
+    \textsc{Feb 2017} & \emph{Web Application Research Intern}\\
+    & \textit{\href{https://tikio.io}{Tikio: a Platform for Event Management}.} \\\multicolumn{2}{c}{} \\
+    
+    \textsc{Jan 2017} & Developer at \textsc{\href{https://emaarat.com}{Emaarat Services}}, Tehran \\
+    \textsc{Apr 2016} & \emph{Web App Developer}\\
+    & \footnotesize{Responsibilities included developing Emaarat’s core web application and API using \textit{Laravel} framework, managing database system of Emaarat's products and maintaining the production environments of applications with \textit{Docker Containers} (\textit{\href{https://emaarat.com}{Emaarat Platform})}.}\\\multicolumn{2}{c}{} \\
+    
+    \textsc{Jan 2016} & Freelance Developer \\
+    \textsc{Sep 2015} & \footnotesize{\href{https://github.com/anewage}{Github Profile}.}\\\multicolumn{2}{c}{} \\
+    
+    
+    \textsc{2015} & Volunteer Media Translator at \textsc{BaranMovie Online Translating Team} \\
+    \textsc{2012} & \emph{Team Organizer and Translator}\\
+    & \footnotesize{Responsibilities included dividing workload among translators and also translating English-language movies or TV-series' scripts and creating Persian SubRip Subtitle files (\textit{\href{https://subscene.com/u/618697}{My Subscene Profile})}.}\\\multicolumn{2}{c}{} \\
+ 
+\end{longtable}
+
+%Section: Honors and Awards
+\section{Honors and Awards}
+\begin{itemize}
+
+    \item \emph{Ranked top 0.4\%} in the National Entrance Exam among all Iranian Students in Mathematics \& Physics (2014)
+    
+    \item \emph{Ranked top 0.7\%} in the National Entrance Exam among all Iranian Students in Foreign Languages (2014)
+    
+    \item \textbf{Executive director and Chief of Staff} of the 16\textsuperscript{th} (2016) and \textbf{member of the organizing committee} of the 15\textsuperscript{th} (2015) \href{http://icpc.aut.ac.ir/}{Amirkabir International Collegiate Programming Contest} (AUT ICPC) (both, held jointly with TUM, KTH, Jagellonian and EPFL universities), \textbf{Member of both the executive and the organizing committee} of the 7\textsuperscript{th} (2015), the 8\textsuperscript{th} (2016), and the 9\textsuperscript{th} (2017) \href{http://linuxfest.ir}{Amirkabir Linux Festival}, \textbf{Director of Informatics} of the 11\textsuperscript{th} round of \textit{Students Scientific Chapter (SSC)} of \textit{CEIT Department} at \textit{AUT} (\textbf{Elected by the students} of the department) and \textbf{Tech-and-executive Advisor} of the 12\textsuperscript{th} SSC of CEIT at AUT (2017)
+    
+    
+    \item \textbf{Volunteer Assistant} at CEIT Department Guild Council (Students Association), Tehran Polytechnic (2014)
+    
+    \item Winner of the \textbf{The Best Ritual and Folklore Performance Award} during the 18\textsuperscript{th} \textit{\href{http://iran-tt.ir/}{Traditional and Ritual Theater Festival}} (Tehran, Aug. 2017), Winner of \textbf{First Prize of Folklore Dances} in the \textit{\href{http://eaff.eu/en}{International Folklore, Dance and Music Festival and Competition - Vienna Stars, Prague Stars 2017}} (Vienna and Prague, Nov. 2017), as a member of \textit{\href{https://aylandance.com}{Aylan Azerbaijani Folklore Dance Group}}
+
+\end{itemize}
+
+\section{Skills and Abilities}
+    \begin{itemize}
+        \item Programming Languages: MATLAB, Java, PHP, C, C++, Python, Bash, Javascript
+        \item Software Engineering, Networks and Related Skills, Frameworks and Technologies:
+            \begin{itemize}
+                \item Data-Driven Documents Javascript Library (D3.js)
+                
+                \item Mininet Network Emulator, Container based virtualization and orchestration, Docker Containers and deploying applications with Docker Compose
+                
+                \item Progressive Web Applications, with Google's guidelines using Laravel and Vue.js frameworks
+                
+                \item Report and document generation with \LaTeX{}, Microsoft Office tools and other web-based tools
+                
+                \item MongoDB (Document-based NOSQL DB), MySQL, HSQLDB and usage in multiple applications
+                
+            \end{itemize}
+        
+        \item Physical and Artistic:
+            \begin{itemize}
+                \item Mountaineering: Active mountain trekker and camping enthusiastic
+                
+                \item Choreography and Dancing: A member of \emph{\href{https://aylandance.com}{Aylan Azerbaijani Folklore Dance Group}}
+            \end{itemize}
+    \end{itemize}
+    
+%Section: Languages
+\section{Languages}
+\begin{tabular}{rl}
+    \textsc{English:}&Professional Working Proficiency\\
+    %& TOEFL iBT Score: 98 - \emph{Reading: 25}, \emph{Listening: 22}, \emph{Speaking: 24}, \emph{Writing: 27}\\
+    \textsc{Persian (Farsi):}&Native/Bilingual Proficiency\\
+    \textsc{Azerbaijani:}&Native/Bilingual Proficiency\\
+\end{tabular}
+
+\section{References}
+Available upon request.
+
+\newpage
+\input{./ce_grades.tex}
+
+\end{document}
